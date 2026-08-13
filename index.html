@@ -3,255 +3,618 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal portfolio website">
-    <title>Your Name | Personal Portfolio</title>
 
+    <meta name="description" content="AstroCimp personal portfolio — developer, system builder, and technology enthusiast.">
+    <meta name="author" content="AstroCimp">
+    <meta name="theme-color" content="#0b0f0d">
+
+    <title>AstroCimp | Developer & System Builder</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
+
         <a class="navbar-brand fw-bold" href="#home">
-            <span class="brand-mark">&lt;/&gt;</span> YOUR NAME
+            <span class="brand-mark">&lt;/&gt;</span> AstroCimp
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
             </ul>
         </div>
+
     </div>
 </nav>
 
+
 <main>
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
     <section id="home" class="hero-section d-flex align-items-center">
+
         <div class="container">
+
             <div class="row align-items-center min-vh-100 py-5">
+
                 <div class="col-lg-8">
-                    <p class="eyebrow mb-3">WELCOME TO MY WEBSITE</p>
+
+                    <div class="d-inline-flex align-items-center gap-2 mb-3">
+                        <span class="badge rounded-pill text-bg-success">
+                            <i class="bi bi-circle-fill me-1 small"></i>
+                            Building & Learning
+                        </span>
+                    </div>
+
+                    <p class="eyebrow mb-3">
+                        PERSONAL DEVELOPER PORTFOLIO
+                    </p>
+
                     <h1 class="display-2 fw-bold mb-3">
-                        Hello, I'm <span class="accent-text">Your Name.</span>
+                        Hello, I'm <span class="accent-text">AstroCimp.</span>
                     </h1>
-                    <p class="hero-subtitle mb-4">
+
+                    <p class="hero-subtitle mb-3">
                         Developer • System Builder • Technology Enthusiast
                     </p>
+
                     <p class="hero-description mb-4">
-                        I enjoy building practical systems, learning new technologies,
-                        and turning ideas into working software.
+                        I build practical web systems, database-driven applications,
+                        reporting tools, and personal software projects.
+                        I enjoy turning ideas into working systems and improving them
+                        one feature at a time.
                     </p>
 
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="#projects" class="btn btn-accent btn-lg">View My Projects</a>
-                        <a href="#about" class="btn btn-outline-light btn-lg">About Me</a>
+                    <div class="d-flex flex-wrap gap-3 mb-5">
+
+                        <a href="#projects" class="btn btn-accent btn-lg">
+                            <i class="bi bi-grid me-2"></i>
+                            View Projects
+                        </a>
+
+                        <a
+                            href="https://github.com/AstroCimp"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-outline-light btn-lg"
+                        >
+                            <i class="bi bi-github me-2"></i>
+                            GitHub
+                        </a>
+
                     </div>
 
-                    <div class="hero-socials mt-5">
-                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                            <i class="bi bi-github"></i>
-                        </a>
-                        <a href="#" aria-label="LinkedIn">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                        <a href="mailto:your@email.com" aria-label="Email">
-                            <i class="bi bi-envelope-fill"></i>
-                        </a>
+                    <!-- Quick Information -->
+                    <div class="row g-3">
+
+                        <div class="col-6 col-md-4">
+                            <div class="about-card h-100 py-3">
+                                <div class="fw-bold fs-4 accent-text">
+                                    Web
+                                </div>
+                                <small class="text-secondary">
+                                    Development
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4">
+                            <div class="about-card h-100 py-3">
+                                <div class="fw-bold fs-4 accent-text">
+                                    SQL
+                                </div>
+                                <small class="text-secondary">
+                                    Database Design
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4">
+                            <div class="about-card h-100 py-3">
+                                <div class="fw-bold fs-4 accent-text">
+                                    PHP
+                                </div>
+                                <small class="text-secondary">
+                                    Backend Systems
+                                </small>
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
     <section id="about" class="section-padding">
+
         <div class="container">
+
             <div class="section-heading">
                 <span>01.</span>
                 <h2>About Me</h2>
             </div>
 
-            <div class="row g-5 align-items-center">
+            <div class="row g-5 align-items-start">
+
                 <div class="col-lg-7">
+
                     <p class="lead">
-                        I'm a developer interested in building useful, practical systems.
+                        I enjoy building software that solves practical problems.
                     </p>
+
                     <p>
-                        My projects range from management systems and reporting tools to
-                        personal software projects. I enjoy working with databases,
-                        backend logic, responsive interfaces, and improving existing systems.
+                        My main interest is system development, especially applications
+                        that organize information, simplify workflows, generate reports,
+                        and make day-to-day tasks easier to manage.
                     </p>
+
                     <p>
-                        This website is my personal space to document my work, projects,
-                        skills, and things I'm currently exploring.
+                        I work mainly with PHP, MySQL, HTML, CSS, Bootstrap,
+                        JavaScript, and related development tools.
+                        I also enjoy database design, system planning, testing,
+                        troubleshooting, and gradually improving existing applications.
                     </p>
+
+                    <p>
+                        This website acts as my personal portfolio and development archive.
+                        It will continue to grow as I publish new projects and improve
+                        existing ones.
+                    </p>
+
                 </div>
+
 
                 <div class="col-lg-5">
-                    <div class="about-card">
-                        <div class="about-icon"><i class="bi bi-code-slash"></i></div>
-                        <h3>What I Do</h3>
+
+                    <div class="about-card mb-4">
+
+                        <div class="about-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+
+                        <h3>Current Focus</h3>
+
                         <p class="mb-0">
-                            Web development, database design, system development,
-                            reporting tools, and personal technology projects.
+                            Building practical management systems,
+                            improving web application architecture,
+                            and strengthening backend and database skills.
                         </p>
+
                     </div>
+
+
+                    <div class="about-card">
+
+                        <div class="about-icon">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+
+                        <h3>Development Approach</h3>
+
+                        <p class="mb-0">
+                            Start simple, build the core features first,
+                            test regularly, then improve the system
+                            through small and manageable iterations.
+                        </p>
+
+                    </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
+
+    <!-- =====================================================
+         SKILLS
+         ===================================================== -->
     <section id="skills" class="section-padding section-alt">
+
         <div class="container">
+
             <div class="section-heading">
                 <span>02.</span>
                 <h2>Skills & Tools</h2>
             </div>
 
+
             <div class="row g-4">
+
+                <!-- Frontend -->
                 <div class="col-md-6 col-lg-4">
+
                     <div class="skill-card h-100">
+
                         <i class="bi bi-window"></i>
+
                         <h3>Frontend</h3>
+
+                        <p>
+                            Building responsive and practical interfaces
+                            for web-based systems.
+                        </p>
+
                         <div class="skill-tags">
                             <span>HTML5</span>
                             <span>CSS3</span>
                             <span>Bootstrap</span>
                             <span>JavaScript</span>
                         </div>
+
                     </div>
+
                 </div>
 
+
+                <!-- Backend -->
                 <div class="col-md-6 col-lg-4">
+
                     <div class="skill-card h-100">
+
                         <i class="bi bi-server"></i>
+
                         <h3>Backend</h3>
+
+                        <p>
+                            Developing server-side logic,
+                            authentication, CRUD operations,
+                            and system workflows.
+                        </p>
+
                         <div class="skill-tags">
                             <span>PHP</span>
-                            <span>MySQL</span>
                             <span>PDO</span>
+                            <span>MySQL</span>
                             <span>SQL</span>
                         </div>
+
                     </div>
+
                 </div>
 
+
+                <!-- Development Tools -->
                 <div class="col-md-6 col-lg-4">
+
                     <div class="skill-card h-100">
+
                         <i class="bi bi-tools"></i>
-                        <h3>Tools</h3>
+
+                        <h3>Development Tools</h3>
+
+                        <p>
+                            Tools used for coding, local development,
+                            database administration, deployment,
+                            and version control.
+                        </p>
+
                         <div class="skill-tags">
                             <span>VS Code</span>
                             <span>Git</span>
                             <span>GitHub</span>
-                            <span>Docker</span>
                             <span>Laragon</span>
+                            <span>Docker</span>
+                            <span>HeidiSQL</span>
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
+
+    <!-- =====================================================
+         PROJECTS
+         ===================================================== -->
     <section id="projects" class="section-padding">
+
         <div class="container">
+
             <div class="section-heading">
                 <span>03.</span>
-                <h2>Projects</h2>
+                <h2>Featured Projects</h2>
             </div>
+
 
             <div class="row g-4">
+
+
+                <!-- OPMS -->
                 <div class="col-md-6 col-xl-4">
+
                     <article class="project-card h-100">
+
                         <div class="project-top">
+
                             <i class="bi bi-folder2-open"></i>
-                            <a href="#" aria-label="Project repository"><i class="bi bi-github"></i></a>
+
+                            <a href="#" aria-label="OPMS GitHub repository">
+                                <i class="bi bi-github"></i>
+                            </a>
+
                         </div>
+
+                        <p class="eyebrow mb-2">
+                            PERSONAL PROJECT
+                        </p>
+
                         <h3>Oil Palm Management System</h3>
+
                         <p>
-                            A management system for organizing oil palm operations,
-                            records, workers, harvests, expenses, and reporting.
+                            A management system designed for small-scale
+                            oil palm operations. It manages estates,
+                            blocks, harvest records, workers,
+                            field activities, expenses, and reports.
                         </p>
+
                         <div class="project-tech">
-                            <span>PHP</span><span>MySQL</span><span>Bootstrap</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>Bootstrap</span>
+                            <span>JavaScript</span>
                         </div>
+
                     </article>
+
                 </div>
 
+
+                <!-- Reporting Tools -->
                 <div class="col-md-6 col-xl-4">
+
                     <article class="project-card h-100">
+
                         <div class="project-top">
+
                             <i class="bi bi-folder2-open"></i>
-                            <a href="#" aria-label="Project repository"><i class="bi bi-github"></i></a>
+
+                            <a href="#" aria-label="Reporting project repository">
+                                <i class="bi bi-github"></i>
+                            </a>
+
                         </div>
-                        <h3>Reporting System</h3>
-                        <p>
-                            Web-based reporting tools designed to filter, organize,
-                            export, and present operational information clearly.
+
+                        <p class="eyebrow mb-2">
+                            WEB SYSTEM
                         </p>
+
+                        <h3>Operational Reporting Tools</h3>
+
+                        <p>
+                            Web-based reporting tools for filtering,
+                            organizing, displaying, and exporting
+                            operational information into structured
+                            reports and spreadsheets.
+                        </p>
+
                         <div class="project-tech">
-                            <span>PHP</span><span>SQL</span><span>Excel</span>
+                            <span>PHP</span>
+                            <span>SQL</span>
+                            <span>Excel</span>
+                            <span>HTML</span>
                         </div>
+
                     </article>
+
                 </div>
 
+
+                <!-- Future Project -->
                 <div class="col-md-6 col-xl-4">
+
                     <article class="project-card h-100">
+
                         <div class="project-top">
+
                             <i class="bi bi-folder2-open"></i>
-                            <a href="#" aria-label="Project repository"><i class="bi bi-github"></i></a>
+
+                            <a href="https://github.com/AstroCimp"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="View GitHub profile">
+                                <i class="bi bi-github"></i>
+                            </a>
+
                         </div>
-                        <h3>More Projects Coming</h3>
-                        <p>
-                            This portfolio will continue growing as I build,
-                            improve, and publish more personal projects.
+
+                        <p class="eyebrow mb-2">
+                            MORE COMING
                         </p>
+
+                        <h3>Future Projects</h3>
+
+                        <p>
+                            More projects will be added as I continue
+                            experimenting, learning new technologies,
+                            and publishing completed work.
+                        </p>
+
                         <div class="project-tech">
-                            <span>Learning</span><span>Building</span><span>Improving</span>
+                            <span>Learning</span>
+                            <span>Building</span>
+                            <span>Improving</span>
                         </div>
+
                     </article>
+
                 </div>
+
             </div>
-        </div>
-    </section>
 
-    <section id="contact" class="section-padding section-alt">
-        <div class="container text-center">
-            <div class="contact-wrapper mx-auto">
-                <p class="eyebrow">04. CONTACT</p>
-                <h2 class="display-5 fw-bold mb-3">Get In Touch</h2>
-                <p class="mb-4">
-                    Want to discuss a project, technology, or just say hello?
-                    You can reach me by email or through GitHub.
-                </p>
-                <a href="mailto:your@email.com" class="btn btn-accent btn-lg">
-                    <i class="bi bi-envelope me-2"></i>Email Me
+
+            <div class="text-center mt-5">
+
+                <a
+                    href="https://github.com/AstroCimp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-outline-light"
+                >
+                    <i class="bi bi-github me-2"></i>
+                    View GitHub Profile
                 </a>
+
             </div>
+
         </div>
+
     </section>
+
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+    <section id="contact" class="section-padding section-alt">
+
+        <div class="container text-center">
+
+            <div class="contact-wrapper mx-auto">
+
+                <p class="eyebrow">
+                    04. CONTACT
+                </p>
+
+                <h2 class="display-5 fw-bold mb-3">
+                    Get In Touch
+                </h2>
+
+                <p class="mb-4">
+                    This site is still growing.
+                    You can follow my projects and development work through GitHub.
+                </p>
+
+                <div class="d-flex justify-content-center flex-wrap gap-3">
+
+                    <a
+                        href="https://github.com/AstroCimp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-accent btn-lg"
+                    >
+                        <i class="bi bi-github me-2"></i>
+                        GitHub
+                    </a>
+
+                    <a
+                        href="mailto:your@email.com"
+                        class="btn btn-outline-light btn-lg"
+                    >
+                        <i class="bi bi-envelope me-2"></i>
+                        Email Me
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </main>
 
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
 <footer class="site-footer">
+
     <div class="container text-center">
-        <p class="mb-1">Designed & built by Your Name</p>
-        <small>&copy; <span id="currentYear"></span> All rights reserved.</small>
+
+        <p class="mb-1">
+            Designed & built by AstroCimp
+        </p>
+
+        <small>
+            &copy; <span id="currentYear"></span> AstroCimp.
+            All rights reserved.
+        </small>
+
     </div>
+
 </footer>
 
-<button id="backToTop" class="back-to-top" aria-label="Back to top">
+
+<!-- Back To Top -->
+<button
+    id="backToTop"
+    class="back-to-top"
+    aria-label="Back to top"
+>
     <i class="bi bi-arrow-up"></i>
 </button>
 
+
+<!-- Bootstrap JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/main.js"></script>
+
+<!-- Custom JavaScript -->
+<script src="main.js"></script>
+
 </body>
 </html>
