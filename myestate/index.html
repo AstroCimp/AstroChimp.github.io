@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08110c">
+  <title>MyEstate | Property Dice Game</title>
+
+  <!-- MyEstate uses its own isolated stylesheet -->
+  <link rel="stylesheet" href="assets/css/myestate.css">
+</head>
+
+<body class="myestate-page">
+  <main class="myestate-shell">
+    <header class="myestate-topbar">
+      <div>
+        <p class="myestate-eyebrow">MINI GAME</p>
+        <h1>MyEstate</h1>
+        <p class="myestate-subtitle">Roll. Invest. Collect. Dominate the estate.</p>
+      </div>
+
+      <div class="myestate-top-actions">
+        <a class="myestate-btn myestate-btn-ghost" href="../index.html">Back to Site</a>
+        <button class="myestate-btn myestate-btn-ghost" id="myestateSaveBtn">Save Game</button>
+        <button class="myestate-btn myestate-btn-danger" id="myestateResetBtn">Reset</button>
+      </div>
+    </header>
+
+    <section id="myestateSetupPanel" class="myestate-setup-panel">
+      <div class="myestate-panel-card">
+        <h2>Start New Game</h2>
+        <p>Choose 2–4 local players. Everyone starts with RM1,500.</p>
+
+        <label for="myestatePlayerCount">Number of players</label>
+        <select id="myestatePlayerCount">
+          <option value="2">2 Players</option>
+          <option value="3">3 Players</option>
+          <option value="4">4 Players</option>
+        </select>
+
+        <div id="myestatePlayerNames" class="myestate-player-name-fields"></div>
+
+        <button class="myestate-btn myestate-btn-primary myestate-full" id="myestateStartBtn">
+          Start MyEstate
+        </button>
+
+        <button class="myestate-btn myestate-btn-ghost myestate-full myestate-hidden" id="myestateLoadBtn">
+          Load Saved Game
+        </button>
+      </div>
+    </section>
+
+    <section id="myestateGamePanel" class="myestate-game-layout myestate-hidden">
+      <aside class="myestate-sidebar">
+        <div class="myestate-panel-card">
+          <span class="myestate-section-label">CURRENT TURN</span>
+          <h2 id="myestateCurrentPlayerName">Player 1</h2>
+
+          <div class="myestate-dice-wrap">
+            <div class="myestate-die" id="myestateDie1">–</div>
+            <div class="myestate-die" id="myestateDie2">–</div>
+          </div>
+
+          <button class="myestate-btn myestate-btn-primary myestate-full" id="myestateRollBtn">
+            Roll Dice
+          </button>
+
+          <button class="myestate-btn myestate-btn-accent myestate-full myestate-hidden" id="myestateBuyBtn">
+            Buy Property
+          </button>
+
+          <button class="myestate-btn myestate-btn-ghost myestate-full myestate-hidden" id="myestateEndTurnBtn">
+            End Turn
+          </button>
+        </div>
+
+        <div class="myestate-panel-card">
+          <span class="myestate-section-label">GAME FEED</span>
+          <div id="myestateGameLog" class="myestate-game-log"></div>
+        </div>
+      </aside>
+
+      <section class="myestate-board-panel">
+        <div id="myestateBoard" class="myestate-board"></div>
+      </section>
+
+      <aside class="myestate-sidebar">
+        <div class="myestate-panel-card">
+          <span class="myestate-section-label">PLAYERS</span>
+          <div id="myestatePlayersPanel"></div>
+        </div>
+
+        <div class="myestate-panel-card">
+          <span class="myestate-section-label">CURRENT TILE</span>
+          <h3 id="myestateTileName">START</h3>
+          <p id="myestateTileInfo">Pass START to receive RM200.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="myestateToast" class="myestate-toast"></div>
+
+  <!-- MyEstate uses its own isolated script -->
+  <script src="assets/js/myestate.js"></script>
+</body>
+</html>
