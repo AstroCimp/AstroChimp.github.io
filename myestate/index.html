@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#08110c">
-  <title>MyEstate | 100-Slot Property Dice Game</title>
+  <title>MyEstate | 100 Slot Edition</title>
   <link rel="stylesheet" href="assets/css/myestate.css">
 </head>
 <body class="myestate-page">
@@ -13,9 +13,8 @@
       <div>
         <p class="myestate-eyebrow">MINI GAME // 100 SLOT EDITION</p>
         <h1>MyEstate</h1>
-        <p class="myestate-subtitle">Roll. Invest. Collect. Dominate all 100 slots.</p>
+        <p class="myestate-subtitle">Roll. Invest. Collect. Dominate the estate.</p>
       </div>
-
       <div class="myestate-top-actions">
         <a class="myestate-btn myestate-btn-ghost" href="../index.html">Back to Site</a>
         <button class="myestate-btn myestate-btn-ghost" id="myestateSaveBtn">Save Game</button>
@@ -26,7 +25,7 @@
     <section id="myestateSetupPanel" class="myestate-setup-panel">
       <div class="myestate-panel-card">
         <h2>Start New Game</h2>
-        <p>Choose 2–4 local players. Everyone starts with RM3,000 for the 100-slot board.</p>
+        <p>Choose 2–4 local players. Everyone starts with RM3,000.</p>
 
         <label for="myestatePlayerCount">Number of players</label>
         <select id="myestatePlayerCount">
@@ -37,13 +36,8 @@
 
         <div id="myestatePlayerNames" class="myestate-player-name-fields"></div>
 
-        <button class="myestate-btn myestate-btn-primary myestate-full" id="myestateStartBtn">
-          Start MyEstate
-        </button>
-
-        <button class="myestate-btn myestate-btn-ghost myestate-full myestate-hidden" id="myestateLoadBtn">
-          Load Saved Game
-        </button>
+        <button class="myestate-btn myestate-btn-primary myestate-full" id="myestateStartBtn">Start MyEstate</button>
+        <button class="myestate-btn myestate-btn-ghost myestate-full myestate-hidden" id="myestateLoadBtn">Load Saved Game</button>
       </div>
     </section>
 
@@ -52,12 +46,10 @@
         <div class="myestate-panel-card">
           <span class="myestate-section-label">CURRENT TURN</span>
           <h2 id="myestateCurrentPlayerName">Player 1</h2>
-
           <div class="myestate-dice-wrap">
             <div class="myestate-die" id="myestateDie1">–</div>
             <div class="myestate-die" id="myestateDie2">–</div>
           </div>
-
           <button class="myestate-btn myestate-btn-primary myestate-full" id="myestateRollBtn">Roll Dice</button>
           <button class="myestate-btn myestate-btn-accent myestate-full myestate-hidden" id="myestateBuyBtn">Buy Property</button>
           <button class="myestate-btn myestate-btn-ghost myestate-full myestate-hidden" id="myestateEndTurnBtn">End Turn</button>
@@ -70,9 +62,9 @@
       </aside>
 
       <section class="myestate-board-panel">
-        <div class="myestate-board-header">
-          <span>100 SLOT BOARD</span>
-          <span id="myestateBoardProgress">Slot 1 / 100</span>
+        <div class="myestate-board-status">
+          <span>100 SLOTS</span>
+          <span id="myestateBoardProgress">00 / 99</span>
         </div>
         <div id="myestateBoard" class="myestate-board"></div>
       </section>
@@ -93,7 +85,6 @@
   </main>
 
   <div id="myestateToast" class="myestate-toast"></div>
-
   <script src="assets/js/myestate.js"></script>
 </body>
 </html>

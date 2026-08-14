@@ -1,102 +1,110 @@
 (() => {
   "use strict";
 
-  const STORAGE_KEY = "myestate-save-v2-100-slots";
+  const STORAGE_KEY = "myestate-save-v3-100-extended";
   const SLOT_COUNT = 100;
   const START_BONUS = 300;
+  const STARTING_MONEY = 3000;
 
   const colors = ["#49ff88", "#64a9ff", "#ffd166", "#ff6b87"];
 
-  const estateNames = [
-    "Greenfield", "Palm Grove", "Riverbank", "Bukit", "Sungai",
-    "Central", "Hilltop", "Golden Palm", "Grand Estate", "Royal Plantation",
-    "North Ridge", "South Valley", "East Garden", "West Haven", "Emerald Field",
-    "Cedar Estate", "Rainforest Lot", "Sunrise Grove", "Sunset Estate", "Highland Palm",
-    "Lowland Field", "Silver Creek", "Evergreen Lot", "Harvest Point", "Mill District"
+  // Original slots 00-23 retained exactly from the first MyEstate version.
+  const tiles = [
+    { name: "START", type: "start", info: "Pass START to receive RM300." },
+    { name: "Greenfield Lot", type: "property", price: 100, rent: 20 },
+    { name: "Harvest Bonus", type: "bonus", amount: 80, info: "A strong harvest earns you RM80." },
+    { name: "Palm Grove", type: "property", price: 120, rent: 24 },
+    { name: "Road Tax", type: "tax", amount: 70, info: "Pay RM70 in road and transport costs." },
+    { name: "Riverbank Estate", type: "property", price: 140, rent: 28 },
+
+    { name: "Fertilizer Depot", type: "property", price: 160, rent: 32 },
+    { name: "Equipment Repair", type: "tax", amount: 90, info: "Machinery breakdown. Pay RM90." },
+    { name: "Bukit Estate", type: "property", price: 180, rent: 36 },
+    { name: "Market Rally", type: "bonus", amount: 100, info: "Palm oil prices rise. Collect RM100." },
+    { name: "Mill Access", type: "property", price: 200, rent: 40 },
+
+    { name: "Sungai Block", type: "property", price: 220, rent: 44 },
+    { name: "Rain Delay", type: "tax", amount: 60, info: "Operations delayed. Pay RM60." },
+    { name: "Central Estate", type: "property", price: 240, rent: 48 },
+    { name: "Govt Grant", type: "bonus", amount: 120, info: "Smallholder support grant. Collect RM120." },
+    { name: "Hilltop Estate", type: "property", price: 260, rent: 52 },
+
+    { name: "Warehouse", type: "property", price: 280, rent: 56 },
+    { name: "Flood Damage", type: "tax", amount: 120, info: "Flood damage. Pay RM120." },
+    { name: "Golden Palm Estate", type: "property", price: 300, rent: 60 },
+    { name: "Export Bonus", type: "bonus", amount: 150, info: "Export demand increases. Collect RM150." },
+
+    { name: "Grand Estate", type: "property", price: 340, rent: 68 },
+    { name: "Land Assessment", type: "tax", amount: 100, info: "Annual assessment. Pay RM100." },
+    { name: "Royal Plantation", type: "property", price: 380, rent: 76 },
+    { name: "Mega Harvest", type: "bonus", amount: 180, info: "Exceptional yield. Collect RM180." }
   ];
 
-  function createBoard() {
-    const board = [];
+  const propertyNames = [
+    "Cedar Estate", "North Ridge", "South Valley", "East Garden", "West Haven",
+    "Emerald Field", "Sunrise Grove", "Sunset Estate", "Highland Palm", "Lowland Field",
+    "Silver Creek", "Evergreen Lot", "Harvest Point", "Mill District", "Palm Valley",
+    "Green Ridge", "River Plains", "Bukit Heights", "Sungai Estate", "Central Fields",
+    "Golden Valley", "Royal Grove", "Grand Plantation", "Hillcrest Estate", "Lakeview Palm",
+    "Forest Edge", "Southern Grove", "Northern Fields", "Eastern Estate", "Western Plantation"
+  ];
 
-    for (let i = 0; i < SLOT_COUNT; i++) {
-      const slotNumber = i + 1;
+  // Extend the original 24 slots to slot 99.
+  for (let i = 24; i < SLOT_COUNT; i++) {
+    if (i % 20 === 0) {
+      const amount = 220 + Math.floor(i * 1.5);
+      tiles.push({
+        name: "Mega Harvest",
+        type: "bonus",
+        amount,
+        info: `Exceptional yield. Collect RM${amount}.`
+      });
+    } else if (i % 17 === 0) {
+      const amount = 150 + i;
+      tiles.push({
+        name: "Storm Damage",
+        type: "tax",
+        amount,
+        info: `Severe weather damage. Pay RM${amount}.`
+      });
+    } else if (i % 13 === 0) {
+      const amount = 120 + i;
+      tiles.push({
+        name: "Market Rally",
+        type: "bonus",
+        amount,
+        info: `Strong market demand. Collect RM${amount}.`
+      });
+    } else if (i % 11 === 0) {
+      const amount = 100 + i;
+      tiles.push({
+        name: "Equipment Repair",
+        type: "tax",
+        amount,
+        info: `Equipment maintenance. Pay RM${amount}.`
+      });
+    } else if (i % 7 === 0) {
+      const amount = 90 + i;
+      tiles.push({
+        name: "Harvest Bonus",
+        type: "bonus",
+        amount,
+        info: `Good harvest. Collect RM${amount}.`
+      });
+    } else {
+      const tier = Math.floor((i - 24) / 10);
+      const price = 400 + tier * 60 + (i % 10) * 15;
+      const rent = Math.round(price * 0.20);
+      const name = propertyNames[(i - 24) % propertyNames.length];
 
-      if (i === 0) {
-        board.push({
-          name: "START",
-          type: "start",
-          info: `Pass START to receive RM${START_BONUS}.`
-        });
-        continue;
-      }
-
-      if (i % 20 === 0) {
-        board.push({
-          name: "Mega Harvest",
-          type: "bonus",
-          amount: 250 + i,
-          info: `Exceptional yield. Collect RM${250 + i}.`
-        });
-        continue;
-      }
-
-      if (i % 15 === 0) {
-        board.push({
-          name: "Flood Damage",
-          type: "tax",
-          amount: 120 + Math.floor(i * 1.5),
-          info: `Flood damage. Pay RM${120 + Math.floor(i * 1.5)}.`
-        });
-        continue;
-      }
-
-      if (i % 12 === 0) {
-        board.push({
-          name: "Market Rally",
-          type: "bonus",
-          amount: 100 + Math.floor(i * 1.25),
-          info: `Palm oil prices rise. Collect RM${100 + Math.floor(i * 1.25)}.`
-        });
-        continue;
-      }
-
-      if (i % 10 === 0) {
-        board.push({
-          name: "Equipment Repair",
-          type: "tax",
-          amount: 90 + i,
-          info: `Machinery breakdown. Pay RM${90 + i}.`
-        });
-        continue;
-      }
-
-      if (i % 7 === 0) {
-        board.push({
-          name: "Harvest Bonus",
-          type: "bonus",
-          amount: 70 + i,
-          info: `Good harvest. Collect RM${70 + i}.`
-        });
-        continue;
-      }
-
-      const tier = Math.floor(i / 10);
-      const price = 90 + tier * 40 + (i % 10) * 10;
-      const rent = Math.max(15, Math.round(price * 0.18));
-      const baseName = estateNames[(i - 1) % estateNames.length];
-
-      board.push({
-        name: `${baseName} ${slotNumber}`,
+      tiles.push({
+        name,
         type: "property",
         price,
         rent
       });
     }
-
-    return board;
   }
-
-  const tiles = createBoard();
 
   let state = {
     players: [],
@@ -106,7 +114,7 @@
     started: false
   };
 
-  const el = (id) => document.getElementById(id);
+  const el = id => document.getElementById(id);
 
   const setupPanel = el("myestateSetupPanel");
   const gamePanel = el("myestateGamePanel");
@@ -160,7 +168,7 @@
       players: inputs.map((input, i) => ({
         id: i,
         name: input.value.trim() || `Player ${i + 1}`,
-        money: 3000,
+        money: STARTING_MONEY,
         position: 0,
         properties: [],
         color: colors[i],
@@ -172,8 +180,7 @@
       started: true
     };
 
-    tiles.forEach((tile) => delete tile.owner);
-
+    tiles.forEach(tile => delete tile.owner);
     setupPanel.classList.add("myestate-hidden");
     gamePanel.classList.remove("myestate-hidden");
 
@@ -190,13 +197,11 @@
       cell.className = `myestate-tile myestate-${tile.type}`;
 
       cell.innerHTML = `
-        <div class="myestate-tile-index">SLOT ${String(i + 1).padStart(3, "0")}</div>
+        <div class="myestate-tile-index">${String(i).padStart(2, "0")}</div>
         <div class="myestate-tile-name">${tile.name}</div>
-        ${
-          tile.type === "property"
-            ? `<div class="myestate-tile-price">RM${tile.price}<br>Rent RM${tile.rent}</div>`
-            : ""
-        }
+        ${tile.type === "property"
+          ? `<div class="myestate-tile-price">RM${tile.price} · Rent RM${tile.rent}</div>`
+          : ""}
         <div class="myestate-tokens" id="myestateTokens-${i}"></div>
       `;
 
@@ -244,7 +249,7 @@
           <span>RM${player.money}</span>
         </div>
         <div class="myestate-player-meta">
-          ${player.properties.length} properties · Slot ${player.position + 1}/100
+          ${player.properties.length} properties · Slot ${String(player.position).padStart(2, "0")}/99
         </div>
       `;
 
@@ -256,7 +261,9 @@
     const player = state.players[state.currentPlayer];
     const tile = tiles[player.position];
 
-    el("myestateBoardProgress").textContent = `Slot ${player.position + 1} / 100`;
+    el("myestateBoardProgress").textContent =
+      `${String(player.position).padStart(2, "0")} / 99`;
+
     el("myestateTileName").textContent = tile.name;
 
     if (tile.type === "property") {
@@ -316,15 +323,18 @@
       addLog(`${player.name} passed START and collected RM${START_BONUS}.`);
     }
 
-    addLog(`${player.name} rolled ${d1} + ${d2} and moved ${total} slots.`);
-
+    addLog(`${player.name} rolled ${d1} + ${d2} and moved ${total} spaces.`);
     state.rolled = true;
     resolveTile(player);
     renderAll();
 
-    const currentToken = el(`myestateTokens-${player.position}`);
-    if (currentToken) {
-      currentToken.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+    const tileElement = el(`myestateTokens-${player.position}`);
+    if (tileElement) {
+      tileElement.parentElement.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "nearest"
+      });
     }
   }
 
@@ -347,7 +357,6 @@
         const owner = state.players[tile.owner];
         player.money -= tile.rent;
         owner.money += tile.rent;
-
         addLog(`${player.name} paid RM${tile.rent} rent to ${owner.name}.`);
         checkBankruptcy(player);
       }
@@ -379,9 +388,7 @@
       tile.type !== "property" ||
       tile.owner !== undefined ||
       player.money < tile.price
-    ) {
-      return;
-    }
+    ) return;
 
     player.money -= tile.price;
     tile.owner = player.id;
@@ -398,7 +405,7 @@
     state.pendingPurchase = false;
     state.rolled = false;
 
-    const alive = state.players.filter((player) => !player.bankrupt);
+    const alive = state.players.filter(player => !player.bankrupt);
 
     if (alive.length <= 1) {
       const winner = alive[0];
@@ -410,7 +417,8 @@
     }
 
     do {
-      state.currentPlayer = (state.currentPlayer + 1) % state.players.length;
+      state.currentPlayer =
+        (state.currentPlayer + 1) % state.players.length;
     } while (state.players[state.currentPlayer].bankrupt);
 
     el("myestateDie1").textContent = "–";
@@ -424,11 +432,7 @@
     if (player.money >= 0) return;
 
     player.bankrupt = true;
-
-    player.properties.forEach((index) => {
-      delete tiles[index].owner;
-    });
-
+    player.properties.forEach(index => delete tiles[index].owner);
     player.properties = [];
     addLog(`${player.name} is bankrupt and eliminated.`);
   }
@@ -436,7 +440,6 @@
   function addLog(message) {
     const log = el("myestateGameLog");
     const item = document.createElement("div");
-
     item.className = "myestate-log-item";
     item.textContent = message;
     log.prepend(item);
@@ -452,7 +455,7 @@
       STORAGE_KEY,
       JSON.stringify({
         state,
-        owners: tiles.map((tile) =>
+        owners: tiles.map(tile =>
           tile.owner === undefined ? null : tile.owner
         )
       })
@@ -480,9 +483,9 @@
       setupPanel.classList.add("myestate-hidden");
       gamePanel.classList.remove("myestate-hidden");
 
-      addLog("100-slot saved game loaded.");
+      addLog("Saved game loaded.");
       renderAll();
-    } catch (error) {
+    } catch {
       showToast("Saved game could not be loaded.");
     }
   }
@@ -494,7 +497,6 @@
 
   function showToast(text) {
     const toast = el("myestateToast");
-
     toast.textContent = text;
     toast.classList.add("myestate-show");
 
