@@ -4,19 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#08110c">
-  <title>MyEstate | Property Dice Game</title>
-
-  <!-- MyEstate uses its own isolated stylesheet -->
+  <title>MyEstate | 100-Slot Property Dice Game</title>
   <link rel="stylesheet" href="assets/css/myestate.css">
 </head>
-
 <body class="myestate-page">
   <main class="myestate-shell">
     <header class="myestate-topbar">
       <div>
-        <p class="myestate-eyebrow">MINI GAME</p>
+        <p class="myestate-eyebrow">MINI GAME // 100 SLOT EDITION</p>
         <h1>MyEstate</h1>
-        <p class="myestate-subtitle">Roll. Invest. Collect. Dominate the estate.</p>
+        <p class="myestate-subtitle">Roll. Invest. Collect. Dominate all 100 slots.</p>
       </div>
 
       <div class="myestate-top-actions">
@@ -29,7 +26,7 @@
     <section id="myestateSetupPanel" class="myestate-setup-panel">
       <div class="myestate-panel-card">
         <h2>Start New Game</h2>
-        <p>Choose 2–4 local players. Everyone starts with RM1,500.</p>
+        <p>Choose 2–4 local players. Everyone starts with RM3,000 for the 100-slot board.</p>
 
         <label for="myestatePlayerCount">Number of players</label>
         <select id="myestatePlayerCount">
@@ -61,17 +58,9 @@
             <div class="myestate-die" id="myestateDie2">–</div>
           </div>
 
-          <button class="myestate-btn myestate-btn-primary myestate-full" id="myestateRollBtn">
-            Roll Dice
-          </button>
-
-          <button class="myestate-btn myestate-btn-accent myestate-full myestate-hidden" id="myestateBuyBtn">
-            Buy Property
-          </button>
-
-          <button class="myestate-btn myestate-btn-ghost myestate-full myestate-hidden" id="myestateEndTurnBtn">
-            End Turn
-          </button>
+          <button class="myestate-btn myestate-btn-primary myestate-full" id="myestateRollBtn">Roll Dice</button>
+          <button class="myestate-btn myestate-btn-accent myestate-full myestate-hidden" id="myestateBuyBtn">Buy Property</button>
+          <button class="myestate-btn myestate-btn-ghost myestate-full myestate-hidden" id="myestateEndTurnBtn">End Turn</button>
         </div>
 
         <div class="myestate-panel-card">
@@ -81,6 +70,10 @@
       </aside>
 
       <section class="myestate-board-panel">
+        <div class="myestate-board-header">
+          <span>100 SLOT BOARD</span>
+          <span id="myestateBoardProgress">Slot 1 / 100</span>
+        </div>
         <div id="myestateBoard" class="myestate-board"></div>
       </section>
 
@@ -93,7 +86,7 @@
         <div class="myestate-panel-card">
           <span class="myestate-section-label">CURRENT TILE</span>
           <h3 id="myestateTileName">START</h3>
-          <p id="myestateTileInfo">Pass START to receive RM200.</p>
+          <p id="myestateTileInfo">Pass START to receive RM300.</p>
         </div>
       </aside>
     </section>
@@ -101,7 +94,6 @@
 
   <div id="myestateToast" class="myestate-toast"></div>
 
-  <!-- MyEstate uses its own isolated script -->
   <script src="assets/js/myestate.js"></script>
 </body>
 </html>
