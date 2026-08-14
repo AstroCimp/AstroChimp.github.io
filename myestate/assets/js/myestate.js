@@ -8,7 +8,7 @@
 
   const colors = ["#49ff88", "#64a9ff", "#ffd166", "#ff6b87"];
 
-  // Original slots 00-23 retained exactly from the first MyEstate version.
+  // Original slots 0-23 retained exactly from the first MyEstate version.
   const tiles = [
     { name: "START", type: "start", info: "Pass START to receive RM300." },
     { name: "Greenfield Lot", type: "property", price: 100, rent: 20 },
@@ -197,7 +197,7 @@
       cell.className = `myestate-tile myestate-${tile.type}`;
 
       cell.innerHTML = `
-        <div class="myestate-tile-index">${String(i).padStart(2, "0")}</div>
+        <div class="myestate-tile-index">${i}</div>
         <div class="myestate-tile-name">${tile.name}</div>
         ${tile.type === "property"
           ? `<div class="myestate-tile-price">RM${tile.price} · Rent RM${tile.rent}</div>`
@@ -249,7 +249,7 @@
           <span>RM${player.money}</span>
         </div>
         <div class="myestate-player-meta">
-          ${player.properties.length} properties · Slot ${String(player.position).padStart(2, "0")}/99
+          ${player.properties.length} properties · Slot ${player.position}/99
         </div>
       `;
 
@@ -262,7 +262,7 @@
     const tile = tiles[player.position];
 
     el("myestateBoardProgress").textContent =
-      `${String(player.position).padStart(2, "0")} / 99`;
+      `${player.position} / 99`;
 
     el("myestateTileName").textContent = tile.name;
 
